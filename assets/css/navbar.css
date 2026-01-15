@@ -1,0 +1,52 @@
+/* --- NAVIGATION --- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2005;
+    backdrop-filter: blur(15px);
+    background: rgba(5, 5, 5, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo-box svg {
+    width: 60px;
+    height: auto;
+    transition: 0.5s;
+}
+
+.st1 {
+    fill: url(#logoGradient);
+    filter: url(#bevel3d);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-left: 40px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--red-bright);
+}
+
+.mobile-toggle {
+    display: none;
+    color: white;
+    font-size: 1.5rem;
+    z-index: 2100;
+}

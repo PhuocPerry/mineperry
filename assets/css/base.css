@@ -1,0 +1,21 @@
+:root {
+    --red: #8b0000;
+    --red-bright: #cc0000;
+    --red-glow: rgba(139, 0, 0, 0.4);
+    --bg: #050505;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+body {
+    background: var(--bg);
+    background-image: radial-gradient(circle at 50% -20%, #2a0000 0%, transparent 50%);
+    color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+}
