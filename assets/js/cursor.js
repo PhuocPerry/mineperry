@@ -7,8 +7,6 @@ window.addEventListener("mousemove", e => {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
 
-    follower.animate(
-        { left: `${e.clientX - 20}px`, top: `${e.clientY - 20}px` },
-        { duration: 500, fill: "forwards" }
-    );
+    follower.style.left = `${e.clientX - 20}px`;
+    follower.style.top = `${e.clientY - 20}px`;
 });
