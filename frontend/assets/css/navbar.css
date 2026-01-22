@@ -3,7 +3,7 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 20px 8%;
+    padding: 15px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,12 +11,14 @@ nav {
     backdrop-filter: blur(15px);
     background: rgba(5, 5, 5, 0.8);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
 }
 
 .logo-box svg {
-    width: 60px;
+    width: 35px;
+    margin-left: 10px;
     height: auto;
-    transition: 0.5s;
+    transition: all 0.3s ease;
 }
 
 .st1 {
@@ -49,4 +51,47 @@ nav {
     color: white;
     font-size: 1.5rem;
     z-index: 2100;
+}
+
+/* Scroll effect */
+nav.scrolled {
+    background: rgb(5 5 5 / 39%);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 8%;
+    border-radius: 0 0 20px 20px;
+    margin: 0 2%;
+    width: calc(100% - 4%);
+    max-width: calc(100vw - 4%);
+}
+
+nav.scrolled .logo-box svg {
+    width: 35px;
+    margin-top: 5px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    nav {
+        background: rgba(5, 5, 5, 0.6); /* More transparent on mobile */
+        backdrop-filter: blur(10px);
+        padding: 12px 5%;
+    }
+
+    nav.scrolled {
+        background: rgb(5 5 5 / 24%);
+        backdrop-filter: blur(15px);
+        border-radius: 50px; /* Rounded at both top and bottom */
+        margin: 10px 3% 0; /* Top margin so it's not stuck to top edge */
+        width: calc(100% - 6%);
+        max-width: calc(100vw - 6%);
+        position: fixed;
+        top: 10px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    nav.scrolled .logo-box svg {
+        width: 40px;
+    }
 }

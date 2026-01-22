@@ -1,5 +1,6 @@
 const mobileToggle = document.getElementById('mobileToggle');
 const navLinks = document.getElementById('navLinks');
+const nav = document.querySelector('nav');
 
 mobileToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
@@ -15,3 +16,13 @@ document.querySelectorAll('.nav-links a').forEach((link, i) => {
         mobileToggle.querySelector('i').className = 'fas fa-bars-staggered';
     });
 });
+
+// Scroll effect for navbar
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+
