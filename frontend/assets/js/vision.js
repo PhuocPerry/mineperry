@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
         stop1.setAttribute('offset', '0%');
-        stop1.setAttribute('style', 'stop-color:#7a0000;stop-opacity:0.9');
+        stop1.setAttribute('style', 'stop-color:#ff4d4d;stop-opacity:0.9');
         
         const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
         stop2.setAttribute('offset', '100%');
-        stop2.setAttribute('style', 'stop-color:#c41e1e;stop-opacity:0.9');
+        stop2.setAttribute('style', 'stop-color:#ff8c8c;stop-opacity:0.9');
         
         gradient.appendChild(stop1);
         gradient.appendChild(stop2);
@@ -60,23 +60,31 @@ document.addEventListener('DOMContentLoaded', function() {
         const centerX = 550;
         const centerY = 350;
 
-        // Node positions in hexagon pattern - calculated from CSS positioning
-        // These match the CSS positioning with 140px node size
+        // Node positions in hexagon pattern
         const nodePositions = [
-            { x: 550, y: 91 },      // Top (Excellence)
-            { x: 755, y: 224 },     // Top-Right (Security)
-            { x: 755, y: 476 },     // Bottom-Right (Community)
-            { x: 550, y: 609 },     // Bottom (Innovation)
-            { x: 345, y: 476 },     // Bottom-Left (24/7 Support)
-            { x: 345, y: 224 }      // Top-Left (Gaming First)
+            { x: 550, y: 70 },      // Top
+            { x: 880, y: 170 },     // Top-Right
+            { x: 880, y: 530 },     // Bottom-Right
+            { x: 550, y: 630 },     // Bottom
+            { x: 220, y: 530 },     // Bottom-Left
+            { x: 220, y: 170 }      // Top-Left
         ];
 
         // Draw connecting lines with animation
         nodePositions.forEach((pos, index) => {
+            // Calculate control point for smooth curve
+            const dx = pos.x - centerX;
+            const dy = pos.y - centerY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            // Offset control point away from center
+            const controlX = centerX + (dx * 0.3);
+            const controlY = centerY + (dy * 0.3);
+
             // Draw glow line (background)
             const glowLine = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-            glowLine.setAttribute('d', `M ${centerX} ${centerY} L ${pos.x} ${pos.y}`);
-            glowLine.setAttribute('stroke', '#7a0000');
+            glowLine.setAttribute('d', `M ${centerX} ${centerY} Q ${controlX} ${controlY} ${pos.x} ${pos.y}`);
+            glowLine.setAttribute('stroke', '#ff4d4d');
             glowLine.setAttribute('stroke-width', '8');
             glowLine.setAttribute('fill', 'none');
             glowLine.setAttribute('stroke-linecap', 'round');
@@ -93,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Main line
             const line = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-            line.setAttribute('d', `M ${centerX} ${centerY} L ${pos.x} ${pos.y}`);
+            line.setAttribute('d', `M ${centerX} ${centerY} Q ${controlX} ${controlY} ${pos.x} ${pos.y}`);
             line.setAttribute('class', 'branch-line');
             line.setAttribute('stroke-width', '2.5');
             
