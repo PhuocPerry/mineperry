@@ -7,12 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Clear previous SVG
         svgContainer.innerHTML = '';
 
-        // Create SVG element
-        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        svg.setAttribute('viewBox', '0 0 1100 700');
-        svg.setAttribute('width', '100%');
-        svg.setAttribute('height', '100%');
-        svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+       
 
         // Create defs for gradients and filters
         const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
