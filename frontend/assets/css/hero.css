@@ -46,6 +46,10 @@
     line-height: 1.6;
 }
 
+body.light-mode .hero-content p {
+    color: #666;
+}
+
 .primary-btn {
     padding: 18px 45px;
     background: #7a0000;
@@ -58,6 +62,11 @@
     box-shadow: 0 5px 20px rgba(139, 0, 0, 0.4);
     display: inline-block;
     align-self: flex-start;
+}
+
+body.light-mode .primary-btn {
+    background: #0052a3;
+    box-shadow: 0 5px 20px rgba(0, 102, 204, 0.3);
 }
 
 .model-viewport {

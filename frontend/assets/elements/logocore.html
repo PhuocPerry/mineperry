@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .studio-container {
+            position: relative;
+            width: 90vw; /* Sử dụng viewport width */
+            height: 90vw;
+            max-width: 850px;
+            max-height: 850px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .system-rotation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 2px var(--neon-red));
+        }
+
+        .circuit-trace {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 800;
+            animation: flow 4s linear infinite;
+        }
+
+        @keyframes flow {
+            to { stroke-dashoffset: 0; }
+        }
+
+        /* Logo Core - Tối ưu kích thước linh hoạt */
+        .logo-core {
+            position: absolute;
+            z-index: 10;
+            background: rgba(20, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 5%; /* Padding theo tỉ lệ */
+            border-radius: 15px;
+            border: 1.5px solid var(--neon-red);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+            animation: breathe 5s ease-in-out infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-core svg {
+            width: 80px; /* Mặc định cho mobile */
+            height: 80px;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+        /* RESPONSIVE MÀN HÌNH LỚN (PC) */
+        @media (min-width: 768px) {
+            .logo-core svg {
+                width: 130px;
+                height: 130px;
+            }
+            .label {
+                font-size: 16px;
+                letter-spacing: 8px;
+                bottom: 20px;
+            }
+            .ring-2 { opacity: 0.3; border-width: 2px; }
+        }
+
+        /* RESPONSIVE MÀN HÌNH NHỎ (MOBILE) */
+        @media (max-width: 480px) {
+            /* Ẩn bớt các đường mạch phụ để tránh rối mắt trên màn hình nhỏ */
+
+            .studio-container {
+                width: 80vw;
+                height: 95vw;
+            }
+        }
+
+        @keyframes glitch {
+            0% { opacity: 1; }
+            95% { opacity: 1; }
+            97% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .glow-red {
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.2) 0%, transparent 70%);
+            filter: blur(30px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="studio-container">
+    <div class="glow-red"></div>
+    <div class="logo-core">
+        <svg version="1.1" viewBox="0 0 1080 1080">
+            <g>
+                <polygon fill="#ff3333" points="278.76,297.68 278.76,667.14 357.38,667.14 357.38,449.72 450.3,568.31 643.29,297.68 543.23,297.68 448.87,428.43 353.1,297.68"/>
+                <path fill="#ff3333" d="M616.22,667.14l-0.27-113.08l90.33-0.29c123.3-13.97,111.5-126.86,111.5-126.86 c2.68-128.28-118.69-129.23-118.69-129.23l-63.67,85.9h69.49c0,0,32.27,6.41,34.68,39.48c2.41,33.07-33.52,46.89-33.52,46.89 l-89.86,0.02l-0.36-60.43l-79.79,107.19v150.42H616.22z"/>
+            </g>
+        </svg>
+    </div>
+
+    <svg class="system-rotation" viewBox="0 0 800 800">
+        <defs>
+            <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#ff0000;" />
+                <stop offset="100%" style="stop-color:#660000;" />
+            </linearGradient>
+        </defs>
+
+        <g fill="none" stroke-width="2">
+            <g stroke="url(#redGrad)" class="circuit-trace">
+                <path d="M400 50 V150 H550 L600 200 H650" />
+                <path d="M50 400 H150 V250 L200 200 V150" />
+            </g>
+
+            <g stroke="#ff3333" class="circuit-trace" style="animation-delay: -1s">
+                <path d="M400 750 V650 H250 L200 600 H150" />
+                <path d="M750 400 H650 V550 L600 600 V650" />
+            </g>
+
+            <g class="extra-circuits" stroke="rgba(255,0,0,0.3)" stroke-width="1">
+                <path d="M380 50 V142 H542 L592 192 H650" />
+                <path d="M200 200 L300 300" />
+                <path d="M600 600 L500 500" />
+                <circle cx="400" cy="400" r="320" stroke-dasharray="10 15" />
+            </g>
+        </g>
+    </svg>
+</div>
+
+</body>
+</html>

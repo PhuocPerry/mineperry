@@ -34,8 +34,15 @@
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-30px); }
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
 }
 
 .vision-content {
@@ -63,6 +70,13 @@
     letter-spacing: 2px;
 }
 
+body.light-mode .vision-header h2 {
+    background: linear-gradient(135deg, #0052a3 0%, #0066cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 .vision-header p {
     font-size: 1.15rem;
     color: #a8a8c8;
@@ -70,6 +84,10 @@
     margin: 0 auto;
     font-weight: 500;
     line-height: 1.6;
+}
+
+body.light-mode .vision-header p {
+    color: #666;
 }
 
 /* ===== MIND MAP STYLES ===== */
@@ -103,7 +121,7 @@
     justify-content: center;
     z-index: 10;
     cursor: pointer;
-    box-shadow: 
+    box-shadow:
         0 0 60px rgba(122, 0, 0, 0.6),
         0 0 30px rgba(122, 0, 0, 0.4),
         inset -30px -30px 60px rgba(0, 0, 0, 0.3),
@@ -113,8 +131,8 @@
 }
 
 .mind-map-center:hover {
-    transform: translate(-50%, -50%) scale(1.15) ;
-    box-shadow: 
+    transform: translate(-50%, -50%) scale(1.15);
+    box-shadow:
         0 0 80px rgba(122, 0, 0, 0.8),
         0 0 40px rgba(122, 0, 0, 0.5),
         inset -30px -30px 60px rgba(0, 0, 0, 0.4),
@@ -122,15 +140,18 @@
 }
 
 @keyframes centerPulse {
-    0%, 100% {
-        box-shadow: 
+
+    0%,
+    100% {
+        box-shadow:
             0 0 60px rgba(122, 0, 0, 0.6),
             0 0 30px rgba(122, 0, 0, 0.4),
             inset -30px -30px 60px rgba(0, 0, 0, 0.3),
             inset 30px 30px 60px rgba(0, 0, 0, 0.1);
     }
+
     50% {
-        box-shadow: 
+        box-shadow:
             0 0 80px rgba(122, 0, 0, 0.7),
             0 0 40px rgba(122, 0, 0, 0.5),
             inset -30px -30px 60px rgba(0, 0, 0, 0.4),
@@ -194,7 +215,7 @@
     justify-content: center;
     gap: 8px;
     backdrop-filter: blur(15px);
-    box-shadow: 
+    box-shadow:
         0 10px 40px rgba(122, 0, 0, 0.3),
         inset 0 1px 2px rgba(0, 0, 0, 0.3),
         0 0 30px rgba(122, 0, 0, 0.2);
@@ -204,14 +225,17 @@
 }
 
 @keyframes nodeGlow {
-    0%, 100% {
-        box-shadow: 
+
+    0%,
+    100% {
+        box-shadow:
             0 10px 40px rgba(122, 0, 0, 0.3),
             inset 0 1px 2px rgba(0, 0, 0, 0.3),
             0 0 30px rgba(122, 0, 0, 0.2);
     }
+
     50% {
-        box-shadow: 
+        box-shadow:
             0 10px 40px rgba(122, 0, 0, 0.4),
             inset 0 1px 2px rgba(0, 0, 0, 0.4),
             0 0 40px rgba(122, 0, 0, 0.3);
@@ -230,7 +254,7 @@
 .mind-map-node:hover .mind-map-node-inner {
     background: linear-gradient(135deg, rgba(122, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.3) 100%);
     border-color: #7a0000;
-    box-shadow: 
+    box-shadow:
         0 20px 60px rgba(122, 0, 0, 0.5),
         inset 0 1px 2px rgba(0, 0, 0, 0.4),
         0 0 60px rgba(122, 0, 0, 0.45);
@@ -392,11 +416,13 @@
         bottom: 2%;
     }
 
-    .node-top-right, .node-bottom-right {
+    .node-top-right,
+    .node-bottom-right {
         right: 5%;
     }
 
-    .node-top-left, .node-bottom-left {
+    .node-top-left,
+    .node-bottom-left {
         left: 5%;
     }
 }

@@ -3,6 +3,16 @@
     --red-bright: #cc0000;
     --red-glow: rgba(139, 0, 0, 0.4);
     --bg: #050505;
+    --text-color: white;
+}
+
+/* Light Mode */
+:root.light-mode {
+    --red: #0066cc;
+    --red-bright: #0052a3;
+    --red-glow: rgba(0, 102, 204, 0.4);
+    --bg: #ffffff;
+    --text-color: #333333;
 }
 
 * {
@@ -14,8 +24,16 @@
 
 body {
     background: var(--bg);
-    background-image: radial-gradient(circle at 50% -20%, #9e0505  0%, transparent 50%);
-    color: white;
+    color: var(--text-color);
     font-family: 'Plus Jakarta Sans', sans-serif;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-image: radial-gradient(circle at 50% -20%, #9e0505 0%, transparent 50%);
+}
+
+body.light-mode {
+    background-image: radial-gradient(circle at 50% -20%, #e6f2ff 0%, transparent 50%);
 }

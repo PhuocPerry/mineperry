@@ -14,6 +14,11 @@ nav {
     transition: all 0.3s ease;
 }
 
+nav.light-mode {
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
 .logo-box svg {
     width: 35px;
     margin-left: 10px;
@@ -42,6 +47,10 @@ nav {
     transition: 0.3s;
 }
 
+nav.light-mode .nav-links a {
+    color: #666;
+}
+
 .nav-links a:hover {
     color: var(--red-bright);
 }
@@ -51,6 +60,33 @@ nav {
     color: white;
     font-size: 1.5rem;
     z-index: 2100;
+}
+
+nav.light-mode .mobile-toggle {
+    color: #333;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-right: 20px;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav.light-mode .theme-toggle {
+    color: #333;
+}
+
+.theme-toggle:hover {
+    color: var(--red-bright);
+    transform: scale(1.1);
 }
 
 /* Scroll effect */
@@ -66,6 +102,12 @@ nav.scrolled {
     max-width: calc(100vw - 4%);
 }
 
+nav.scrolled.light-mode {
+    background: rgb(255 255 255 / 85%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
 nav.scrolled .logo-box svg {
     width: 35px;
     margin-top: 5px;
@@ -74,16 +116,23 @@ nav.scrolled .logo-box svg {
 /* Mobile styles */
 @media (max-width: 768px) {
     nav {
-        background: rgba(5, 5, 5, 0.6); /* More transparent on mobile */
+        background: rgba(5, 5, 5, 0.6);
+        /* More transparent on mobile */
         backdrop-filter: blur(10px);
         padding: 12px 5%;
+    }
+
+    nav.light-mode {
+        background: rgba(255, 255, 255, 0.6);
     }
 
     nav.scrolled {
         background: rgb(5 5 5 / 24%);
         backdrop-filter: blur(15px);
-        border-radius: 50px; /* Rounded at both top and bottom */
-        margin: 10px 3% 0; /* Top margin so it's not stuck to top edge */
+        border-radius: 50px;
+        /* Rounded at both top and bottom */
+        margin: 10px 3% 0;
+        /* Top margin so it's not stuck to top edge */
         width: calc(100% - 6%);
         max-width: calc(100vw - 6%);
         position: fixed;
@@ -91,7 +140,15 @@ nav.scrolled .logo-box svg {
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
     }
 
+    nav.scrolled.light-mode {
+        background: rgb(255 255 255 / 60%);
+    }
+
     nav.scrolled .logo-box svg {
         width: 40px;
+    }
+
+    .theme-toggle {
+        margin-right: 15px;
     }
 }

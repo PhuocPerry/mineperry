@@ -66,6 +66,9 @@
             <a href="#services"><i class="fas fa-layer-group"></i> Dịch vụ</a>
             <a href="#"><i class="fas fa-headset"></i> Hỗ Trợ</a>
             <a href="#" style="color: #472fa8"><i class="fab fa-discord"></i> Discord</a>
+            <div class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </div>
         </div>
     </nav>
 
@@ -79,10 +82,7 @@
             <a href="#services" class="primary-btn">TRẢI NGHIỆM NGAY</a>
         </div>
         <div class="model-viewport">
-            <model-viewer id="blockModel"
-                src="https://raw.githubusercontent.com/PhuocPerry/model-3d/main/logomineperry.glb"
-                camera-orbit="0deg 105deg " interaction-prompt="none" exposure="0.4" shadow-intensity="2"
-                environment-image="neutral" auto-rotate></model-viewer>
+            <div id="load-logo"></div>
         </div>
     </header>
 
@@ -174,17 +174,20 @@
             <div class="service-card">
                 <i class="fab fa-steam"></i>
                 <h3>STEAM GAMEs</h3>
-                <p>Siêu Phẩm AAA (Blockbusters): Những cái tên làm chấn động làng game thế giới như Black Myth: Wukong, Elden Ring, GTA V, Cyberpunk 2077... Bản quyền 100%, cập nhật liên tục.</p>
+                <p>Siêu Phẩm AAA (Blockbusters): Những cái tên làm chấn động làng game thế giới như Black Myth: Wukong,
+                    Elden Ring, GTA V, Cyberpunk 2077... Bản quyền 100%, cập nhật liên tục.</p>
             </div>
             <div class="service-card">
                 <i class="fab fa-apple"></i>
                 <h3>APPLE ID, IPA </h3>
-                <p>Thư viện Apple ID muôn ván app: minecraft , gta , gta san , gta III, shadowrocket,naruto vs bleach ,Deadcells ; hỗ trợ mua app, nạp app, chứng chỉ ipa, chứng chỉ ipa dev idapple vĩnh viễn ,....  .</p>
+                <p>Thư viện Apple ID muôn ván app: minecraft , gta , gta san , gta III, shadowrocket,naruto vs bleach
+                    ,Deadcells ; hỗ trợ mua app, nạp app, chứng chỉ ipa, chứng chỉ ipa dev idapple vĩnh viễn ,.... .</p>
             </div>
             <div class="service-card full-width-card">
                 <i class="fas fa-cube"></i>
                 <h3>Setup sever Minecraft</h3>
-                <p>hỗ trợ setup từ sever nhỏ từ 2cpu - 3ram - 5 người đến sever lớn 50 người chơi, hỗ trợ code plugin riêng ,convert tài nguyên plugin , tối ưu hoá người chơi sao không lag spam,...</p>
+                <p>hỗ trợ setup từ sever nhỏ từ 2cpu - 3ram - 5 người đến sever lớn 50 người chơi, hỗ trợ code plugin
+                    riêng ,convert tài nguyên plugin , tối ưu hoá người chơi sao không lag spam,...</p>
             </div>
     </section>
 
@@ -250,14 +253,16 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy;  2024-2026 MINEPERRY | phuocperry. All rights reserved.</p>
+            <p>&copy; 2024-2026 MINEPERRY | phuocperry. All rights reserved.</p>
             <p>Made with <span style="color: var(--red-bright)">♥</span> for the elite gaming community</p>
         </div>
     </footer>
 
     <!-- JS -->
+    <script src="./frontend/assets/js/theme.js"></script>
     <script type="module" src="./frontend/assets/js/main.js"></script>
     <script src="./frontend/assets/js/vision.js"></script>
+    <script src="./frontend/assets/js/logocore.js"></script>
 </body>
 
 </html>

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Clear previous SVG
         svgContainer.innerHTML = '';
 
-       
+
 
         // Create defs for gradients and filters
         const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
