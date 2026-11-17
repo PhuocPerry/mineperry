@@ -128,64 +128,35 @@
             flex-direction: column;
         }
 
-        /* Thanh trạng thái trên cùng */
+        /* Thanh trên cùng chỉ chứa nút Email bên phải */
         .top-bar {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
-            margin-bottom: 22px;
+            margin-bottom: 16px;
         }
 
-        .status-badge {
+        .email-pill-btn {
             display: inline-flex;
             align-items: center;
-            gap: 7px;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.25);
-            color: #34d399;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 5px 11px;
-            border-radius: 99px;
-            backdrop-filter: blur(8px);
-        }
-
-        .status-dot {
-            width: 6px;
-            height: 6px;
-            background: #10b981;
-            border-radius: 50%;
-            box-shadow: 0 0 8px #10b981;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.25); opacity: 1; }
-            100% { transform: scale(0.95); opacity: 0.8; }
-        }
-
-        .top-actions {
-            display: flex;
             gap: 8px;
-        }
-
-        .action-icon-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             color: var(--text-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 99px;
+            text-decoration: none;
             backdrop-filter: blur(8px);
+            transition: all 0.2s ease;
         }
-        .action-icon-btn:active {
-            transform: scale(0.9);
+        .email-pill-btn i {
+            color: var(--accent);
+            font-size: 13px;
+        }
+        .email-pill-btn:active {
+            transform: scale(0.95);
             background: var(--card-hover);
         }
 
@@ -437,17 +408,12 @@
     <div class="glow-orb orb-2"></div>
 
     <div class="content-wrapper">
-        <!-- Thanh trạng thái & Nút thao tác -->
+        <!-- Thanh trên cùng: Chỉ còn nút Email ở góc phải -->
         <div class="top-bar">
-            <div class="status-badge">
-                <span class="status-dot"></span>
-                <span>Online • Hỗ trợ 24/7</span>
-            </div>
-            <div class="top-actions">
-                <button class="action-icon-btn" onclick="copyProfileLink()" title="Sao chép liên kết">
-                    <i class="fa-solid fa-arrow-up-from-bracket"></i>
-                </button>
-            </div>
+            <a href="mailto:perryphuoc@gmail.com" class="email-pill-btn" title="Gửi Email liên hệ">
+                <i class="fa-solid fa-envelope"></i>
+                <span>perryphuoc@gmail.com</span>
+            </a>
         </div>
 
         <!-- Thông tin cá nhân -->
@@ -547,7 +513,7 @@
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-btn" style="color: #ff0000;">
                 <i class="fa-brands fa-youtube"></i>
             </a>
-            <a href="mailto:contact@example.com" class="social-btn" style="color: #e2e8f0;">
+            <a href="mailto:perryphuoc@gmail.com" class="social-btn" style="color: #e2e8f0;">
                 <i class="fa-solid fa-envelope"></i>
             </a>
         </div>
@@ -559,7 +525,7 @@
 </div>
 
 <!-- Thông báo Toast -->
-<div id="toast" class="toast">✓ Đã sao chép liên kết Bio!</div>
+<div id="toast" class="toast">✓ Đã sao chép!</div>
 
 <script>
     // Tự động tải avatar GitHub mới nhất và chống cache
@@ -569,7 +535,7 @@
             avatarImg.src = `https://github.com/PhuocPerry.png?t=${new Date().getTime()}`;
         }
         
-        // Khởi tạo số liệu lượt xem ngẫu nhiên nhẹ nhàng
+        // Khởi tạo số liệu lượt xem
         let views = localStorage.getItem('profile_views') || 1482;
         if (!sessionStorage.getItem('counted')) {
             views++;
@@ -600,20 +566,6 @@
             showToast('❤️ Cảm ơn bạn đã thả tim cho tớ!');
         } else {
             showToast('✨ Bạn đã thả tim trước đó rồi nha!');
-        }
-    }
-
-    function copyProfileLink() {
-        const url = window.location.href;
-        if (navigator.share) {
-            navigator.share({
-                title: document.title,
-                url: url
-            }).catch(() => {});
-        } else {
-            navigator.clipboard.writeText(url).then(() => {
-                showToast('✓ Đã sao chép liên kết Bio!');
-            });
         }
     }
 
