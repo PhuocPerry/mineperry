@@ -507,3 +507,123 @@
                 <div class="link-info">
                     <div class="link-title">Cộng đồng Discord</div>
                     <div class="link-subtitle">Giao lưu, cập nhật công nghệ & sản phẩm</div>
+                </div>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+            <!-- Nút TikTok -->
+            <a href="https://www.tiktok.com/@phuocperryit" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-icon-box">
+                    <i class="fa-brands fa-tiktok tiktok-gradient"></i>
+                </div>
+                <div class="link-info">
+                    <div class="link-title">Kênh TikTok của tớ</div>
+                    <div class="link-subtitle">@phuocperryit • Mẹo hay & công nghệ</div>
+                </div>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+            <!-- Nút Facebook -->
+            <a href="https://www.facebook.com/profile.php?id=61590140267093" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-icon-box" style="color: #1877f2;">
+                    <i class="fa-brands fa-facebook"></i>
+                </div>
+                <div class="link-info">
+                    <div class="link-title">Facebook Cá Nhân</div>
+                    <div class="link-subtitle">Kết nối và theo dõi trang cá nhân</div>
+                </div>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+        </div>
+
+        <!-- Mạng xã hội phụ dưới cùng -->
+        <div class="socials-row">
+            <a href="https://www.facebook.com/profile.php?id=61590140267093" target="_blank" rel="noopener noreferrer" class="social-btn" style="color: #1877f2;">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.tiktok.com/@phuocperryit" target="_blank" rel="noopener noreferrer" class="social-btn">
+                <i class="fa-brands fa-tiktok tiktok-gradient"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-btn" style="color: #ff0000;">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="mailto:contact@example.com" class="social-btn" style="color: #e2e8f0;">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+
+        <div class="footer-copy">
+            © 2024-2026 MinePerry. All rights reserved.
+        </div>
+    </div>
+</div>
+
+<!-- Thông báo Toast -->
+<div id="toast" class="toast">✓ Đã sao chép liên kết Bio!</div>
+
+<script>
+    // Tự động tải avatar GitHub mới nhất và chống cache
+    document.addEventListener("DOMContentLoaded", () => {
+        const avatarImg = document.getElementById("github-avatar");
+        if (avatarImg) {
+            avatarImg.src = `https://github.com/PhuocPerry.png?t=${new Date().getTime()}`;
+        }
+        
+        // Khởi tạo số liệu lượt xem ngẫu nhiên nhẹ nhàng
+        let views = localStorage.getItem('profile_views') || 1482;
+        if (!sessionStorage.getItem('counted')) {
+            views++;
+            localStorage.setItem('profile_views', views);
+            sessionStorage.setItem('counted', 'true');
+        }
+        document.getElementById('view-count').innerText = Number(views).toLocaleString();
+
+        // Lấy số tim đã lưu
+        let likes = localStorage.getItem('profile_likes') || 328;
+        document.getElementById('like-count').innerText = likes;
+    });
+
+    // Tính năng thả tim tương tác
+    function handleLike() {
+        let likes = Number(localStorage.getItem('profile_likes') || 328);
+        if (!localStorage.getItem('has_liked')) {
+            likes++;
+            localStorage.setItem('profile_likes', likes);
+            localStorage.setItem('has_liked', 'true');
+            document.getElementById('like-count').innerText = likes;
+            
+            // Hiệu ứng tim đập nhẹ
+            const heart = document.getElementById('heart-icon');
+            heart.style.transform = 'scale(1.4)';
+            setTimeout(() => heart.style.transform = 'scale(1)', 200);
+            
+            showToast('❤️ Cảm ơn bạn đã thả tim cho tớ!');
+        } else {
+            showToast('✨ Bạn đã thả tim trước đó rồi nha!');
+        }
+    }
+
+    function copyProfileLink() {
+        const url = window.location.href;
+        if (navigator.share) {
+            navigator.share({
+                title: document.title,
+                url: url
+            }).catch(() => {});
+        } else {
+            navigator.clipboard.writeText(url).then(() => {
+                showToast('✓ Đã sao chép liên kết Bio!');
+            });
+        }
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.innerText = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+</script>
+
+</body>
+</html>
