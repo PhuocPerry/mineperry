@@ -2,12 +2,16 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <!-- Khóa zoom trên điện thoại để giao diện luôn cố định như App -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>PhuocPerry | Bio Link</title>
     
+    <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
@@ -40,9 +44,10 @@
             overflow-x: hidden;
         }
 
+        /* Khung cố định chuẩn giao diện điện thoại */
         .mobile-viewport {
             width: 100%;
-            max-width: 430px;
+            max-width: 430px; /* Kích thước chuẩn iPhone Pro Max */
             min-height: 100dvh;
             background: var(--bg-phone);
             position: relative;
@@ -53,6 +58,7 @@
             box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
         }
 
+        /* Khi mở trên màn hình PC sẽ bo góc như khung điện thoại */
         @media (min-width: 450px) {
             body {
                 padding: 20px 0;
@@ -65,11 +71,13 @@
                 border: 1px solid rgba(255, 255, 255, 0.12);
                 overflow-y: auto;
             }
+            /* Ẩn thanh cuộn cho gọn */
             .mobile-viewport::-webkit-scrollbar {
                 display: none;
             }
         }
 
+        /* Hiệu ứng đốm sáng nền (Ambient Glow) */
         .glow-orb {
             position: absolute;
             border-radius: 50%;
@@ -101,6 +109,7 @@
             flex-direction: column;
         }
 
+        /* Thanh trạng thái trên cùng */
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -154,6 +163,7 @@
             background: var(--card-hover);
         }
 
+        /* Khu vực Profile */
         .profile-section {
             text-align: center;
             margin-bottom: 26px;
@@ -208,6 +218,7 @@
             padding: 0 8px;
         }
 
+        /* Danh sách thẻ Link */
         .links-container {
             display: flex;
             flex-direction: column;
@@ -236,6 +247,7 @@
             background: var(--card-hover);
         }
 
+        /* Nút nổi bật (Highlight) */
         .link-card.is-highlight {
             background: linear-gradient(135deg, rgba(56, 189, 248, 0.14), rgba(129, 140, 248, 0.1));
             border: 1px solid rgba(56, 189, 248, 0.4);
@@ -290,6 +302,14 @@
             color: var(--text-main);
         }
 
+        /* Hiệu ứng màu riêng cho icon TikTok (Hồng Neon & Xanh Cyan) */
+        .tiktok-gradient {
+            background: linear-gradient(135deg, #fe2c55, #25f4ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hàng icon mạng xã hội dưới cùng */
         .socials-row {
             display: flex;
             justify-content: center;
@@ -325,6 +345,7 @@
             margin-top: 18px;
         }
 
+        /* Thông báo Toast khi bấm sao chép link */
         .toast {
             position: fixed;
             bottom: 28px;
@@ -351,10 +372,12 @@
 <body>
 
 <div class="mobile-viewport">
+    <!-- Hiệu ứng ánh sáng nền -->
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
 
     <div class="content-wrapper">
+        <!-- Thanh trạng thái & Nút chia sẻ -->
         <div class="top-bar">
             <div class="status-badge">
                 <span class="status-dot"></span>
@@ -365,10 +388,10 @@
             </button>
         </div>
 
+        <!-- Thông tin cá nhân -->
         <div class="profile-section">
             <div class="avatar-ring">
-                <!-- Tự động đồng bộ avatar từ GitHub PhuocPerry -->
-                <img id="github-avatar" src="https://github.com/PhuocPerry.png" alt="PhuocPerry Avatar" class="avatar-img">
+                <img id="github-avatar" src="https://github.com/PhuocPerry.png" alt="Avatar" class="avatar-img">
             </div>
             <h1 class="profile-name">
                 PhuocPerry
@@ -378,7 +401,9 @@
             <p class="profile-bio">Digital Creator • Automation & Tech Enthusiast 🚀<br>Cung cấp dịch vụ & giải pháp công nghệ tự động.</p>
         </div>
 
+        <!-- Danh sách liên kết -->
         <div class="links-container">
+            <!-- Nút nổi bật (Highlight) -->
             <a href="https://mineperry.com" target="_blank" rel="noopener noreferrer" class="link-card is-highlight">
                 <div class="link-icon-box" style="color: #38bdf8;">
                     <i class="fa-solid fa-globe"></i>
@@ -390,17 +415,19 @@
                 <i class="fa-solid fa-chevron-right link-arrow"></i>
             </a>
 
-            <a href="https://zalo.me/" target="_blank" rel="noopener noreferrer" class="link-card">
+            <!-- Nút Zalo (SĐT: 0904062036) -->
+            <a href="https://zalo.me/0904062036" target="_blank" rel="noopener noreferrer" class="link-card">
                 <div class="link-icon-box" style="color: #0068ff;">
                     <i class="fa-solid fa-comment-dots"></i>
                 </div>
                 <div class="link-info">
                     <div class="link-title">Nhắn tin qua Zalo</div>
-                    <div class="link-subtitle">Tư vấn & hỗ trợ trực tiếp</div>
+                    <div class="link-subtitle">0904062036 - Hỗ trợ trực tiếp</div>
                 </div>
                 <i class="fa-solid fa-chevron-right link-arrow"></i>
             </a>
 
+            <!-- Nút Discord -->
             <a href="https://discord.com/" target="_blank" rel="noopener noreferrer" class="link-card">
                 <div class="link-icon-box" style="color: #5865F2;">
                     <i class="fa-brands fa-discord"></i>
@@ -412,9 +439,10 @@
                 <i class="fa-solid fa-chevron-right link-arrow"></i>
             </a>
 
+            <!-- Nút TikTok (Đã chuẩn màu) -->
             <a href="https://tiktok.com/" target="_blank" rel="noopener noreferrer" class="link-card">
-                <div class="link-icon-box" style="color: #ff0050;">
-                    <i class="fa-brands fa-tiktok"></i>
+                <div class="link-icon-box">
+                    <i class="fa-brands fa-tiktok tiktok-gradient"></i>
                 </div>
                 <div class="link-info">
                     <div class="link-title">Kênh TikTok</div>
@@ -423,29 +451,31 @@
                 <i class="fa-solid fa-chevron-right link-arrow"></i>
             </a>
 
-            <a href="https://github.com/PhuocPerry" target="_blank" rel="noopener noreferrer" class="link-card">
-                <div class="link-icon-box" style="color: #e2e8f0;">
-                    <i class="fa-brands fa-github"></i>
+            <!-- Nút Facebook (Thay thế GitHub) -->
+            <a href="https://www.facebook.com/profile.php?id=61590140267093" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-icon-box" style="color: #1877f2;">
+                    <i class="fa-brands fa-facebook"></i>
                 </div>
                 <div class="link-info">
-                    <div class="link-title">GitHub Projects</div>
-                    <div class="link-subtitle">Mã nguồn mở & dự án cá nhân</div>
+                    <div class="link-title">Trang Facebook Cá Nhân</div>
+                    <div class="link-subtitle">Kết nối và theo dõi trang cá nhân</div>
                 </div>
                 <i class="fa-solid fa-chevron-right link-arrow"></i>
             </a>
         </div>
 
+        <!-- Mạng xã hội phụ -->
         <div class="socials-row">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn">
+            <a href="https://facebook.com/profile.php?id=61590140267093" target="_blank" rel="noopener noreferrer" class="social-btn" style="color: #1877f2;">
                 <i class="fa-brands fa-facebook-f"></i>
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-btn">
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-btn" style="color: #ff0000;">
                 <i class="fa-brands fa-youtube"></i>
             </a>
-            <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="social-btn">
+            <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="social-btn" style="color: #229ed9;">
                 <i class="fa-brands fa-telegram"></i>
             </a>
-            <a href="mailto:contact@example.com" class="social-btn">
+            <a href="mailto:contact@example.com" class="social-btn" style="color: #e2e8f0;">
                 <i class="fa-solid fa-envelope"></i>
             </a>
         </div>
@@ -456,6 +486,7 @@
     </div>
 </div>
 
+<!-- Thông báo copy link -->
 <div id="toast" class="toast">✓ Đã sao chép liên kết Bio!</div>
 
 <script>
